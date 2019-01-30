@@ -1,0 +1,284 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!DOCTYPE html>
+    <head>
+        <title>Technical Documentation for CSS Flexbox</title>
+        <link rel="stylesheet" href="technicalDoc.css">
+        <link rel="stylesheet" href="media-query.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        
+    </head>
+        <body>
+        <nav id="navbar">
+            <header id="main">Guide to CSS Flexbox</header>
+            <ul class="none">
+                <li><a class="nav-link" href="#About" rel="internal">About</a></li>
+                <li><a class="nav-link" href="#Properties_for_the_Parent" rel="internal">Properties for the Parent</a></li>
+                <li><a class="nav-link" href="#Properties_for_the_Children" rel="internal">Properties for the Children</a></li>
+                <li><a class="nav-link" href="#Prefixing_Flexbox" rel="internal">Prefixing Flexbox</a></li>
+                <li><a class="nav-link" href="#Related_Properties" rel="internal">Related Properties</a></li>
+                <li><a class="nav-link" href="#Bugs" rel="internal">Bugs</a></li>
+                <li><a class="nav-link" href="#Reference" rel="internal">Reference</a></li>
+                
+            </ul>
+        </nav>
+        <h1>A Near-Complete Guide to Flexbox</h1>
+            <main id="main-doc">
+                <section class="main-section" id="About">
+                        <header>About</header>
+                            <p>This guide explains the in's and out's of Flexbox, focusing on several different properties for the parent element (flex container) and the child elements (the flex items). </p>    
+                            <p>Note: the Flexbox layout is most appropriate to the components of an application and small-scale layouts while the Grid layout is intended for larger scale layouts.</p>
+                </section>  
+          
+    <!--section 2 -->            
+            <section class="main-section" id="Properties_for_the_Parent">
+                <header>Properties for the Parent</header>
+                    <p><h3>Display</h3>Defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.
+                        <div>    
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.container {
+                                    <li class="indent">display: flex; /* or inline-flex */
+                                    <li>}
+                                </code>
+                            </ul>    
+                        </div>  
+                    </p>
+                    <p><h3>Flex-direction</h3>This establishes the main-axis, thus defining the direction flex items are placed in the flex container. Flexbox is (aside from optional wrapping) a single-direction layout concept. Think of flex items as primarily laying out either in horizontal rows or vertical columns.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.container {
+                                    <li class="indent">flex-direction: row | row-reverse | column | column-reverse;
+                                    <li>}
+                                </code>
+                            </ul>    
+                        </div>  
+                    </p>
+                    <p><h3>Flex-wrap</h3>By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.container {
+                                    <li class="indent">flex-wrap: nowrap | wrap | wrap-reverse;
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>  
+                        <li>nowrap (default): all flex items will be on one line
+                        </li>
+                        <li>wrap: flex items will wrap onto multiple lines, from top to bottom</li>
+                        <li>wrap-reverse:flex items will wrap onto multiple lines from bottom to top</li>
+                    </p>
+                    <p><h3>Flex-flow</h3>This is a shorthand flex-direction and flex-wrap properties, which together define the flex container's main and cross axes. Default is row nowrap.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li indent>flex-flow: <‘flex-direction’> || <‘flex-wrap’>
+                                </code>
+                            </ul>    
+                        </div>  
+                    </p>
+                    <p><h3>Justify-content</h3>This defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.container {
+                                    <li class="indent">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+                                    <li>}
+                                </code>
+                            </ul>    
+                        </div>  
+                    </p>
+                    <p><h3>Align-items</h3>This defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).
+                        <div>
+                            <ul class="none">
+                            <code> <!---2 will be edited in css--->
+                                <li>.container {
+                                <li class="indent">align-items: stretch | flex-start | flex-end | center | baseline;
+                                <li>}
+                            </code>
+                            </ul>
+                        </div> 
+                    </p>
+                    <p><h3>Align-content</h3>This aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis. Note: this property has no effect when there is only one line of flex items.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.container {
+                                    <li class="indent">align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+                                    <li>}
+                                </code>
+                            </ul>
+                       </div>
+                    </p>
+            </section>    
+    <!--section 3 -->            
+            <section class="main-section" id="Properties_for_the_Children">
+                <header>Properties for the Children</header>
+                    <p><h3>Order</h3>By default, flex items are laid out in the source order. However, the order property controls the order in which they appear in the flex container.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.item {
+                                    <li class="indent">order: <integer>; /* default is 0 */
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>
+                    </p>
+                    <p><h3>Flex-grow</h3>This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
+                        <p>If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).</p>
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.item {
+                                    <li class="indent">flex-grow: <number>; /* default 0 */
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>
+                    </p>
+                    <p><h3>Flex-shrink</h3>This defines the ability for a flex item to shrink if necessary.
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.item {
+                                    <li class="indent">flex-shrink: <number>; /* default 1 */
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>
+                    </p>
+                    <p><h3>Flex-basis</h3>This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. 
+                        <p>The auto keyword means "look at my width or height property" (which was temporarily done by the main-size keyword until deprecated).</p> 
+                        <p>The content keyword means "size it based on the item's content" - this keyword isn't well supported yet, so it's hard to test and harder to know what its liethren max-content, min-content, and fit-content do.</p>
+                        <p>If set to 0, the extra space around content isn't factored in. If set to auto, the extra space is distributed based on its flex-grow value.</p>
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.item {
+                                    <li class="indent">flex-basis: <length> | auto; /* default auto */
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>
+                    </p>
+                    <p><h3>Flex</h3>This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.
+                        <p>It is recommended that you use this shorthand property rather than set the individual properties. The short hand sets the other values intelligently.</p>
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.item {
+                                    <li class="indent">flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>
+                    </p>
+                    <p><h3>Align-self</h3>This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
+                    <p>Please see the align-items explanation to understand the available values.</p>
+                        <div>
+                            <ul class="none">
+                                <code> <!---2 will be edited in css--->
+                                    <li>.item {
+                                    <li class="indent">align-self: auto | flex-start | flex-end | center | baseline | stretch;
+                                    <li>}
+                                </code>
+                            </ul>
+                        </div>
+                    </p>
+            </section> 
+    <!--section 4    -->            
+            <section class="main-section" id="Prefixing_Flexbox">
+                <header>Prefixing Flexbox</header>
+                    <p>Flexbox requires some vendor prefixing to support the most liowsers possible. It doesn't just include prepending properties with the vendor prefix, but there are actually entirely different property and value names. This is because the Flexbox spec has changed over time, creating an "old", "tweener", and "new" versions.</p>
+                    <p>Perhaps the best way to handle this is to write in the new (and final) syntax and run your CSS through Autoprefixer, which handles the fallbacks very well.</p>
+                    <p>Alternatively, here's a Sass @mixin to help with some of the prefixing, which also gives you an idea of what kind of things need to be done:
+                        <div>
+                                <ul class="none">
+                                    <code> <!---1 will be edited in css--->
+                                        <li>@mixin flexbox() {
+                                        <li class="indent">display: -webkit-box;
+                                        <li class="indent">display: -moz-box;
+                                        <li class="indent">display: -ms-flexbox;
+                                        <li class="indent">display: -webkit-flex;
+                                        <li class="indent">display: flex;
+                                        <li>}
+                                    </code>
+                                </ul>
+                            </p>
+                            
+                                <ul class="none">
+                                    <code> <!---2 will be edited in css--->
+                                        <li>@mixin flex($values) {
+                                        <li class="indent">-webkit-box-flex: $values;
+                                        <li class="indent">-moz-box-flex:  $values;
+                                        <li class="indent">-webkit-flex:  $values;
+                                        <li class="indent"> -ms-flex:  $values;
+                                        <li class="indent">flex:  $values;
+                                        <li>}
+                                    </code>
+                                </ul>  
+                            </p>  
+                            
+                                <ul class="none">
+                                    <code> <!---3 will be edited in css--->
+                                        <li>@mixin order($val) {
+                                        <li class="indent">-webkit-box-ordinal-group: $val; 
+                                        <li class="indent">-moz-box-ordinal-group: $val;
+                                        <li class="indent">-ms-flex-order: $val;
+                                        <li class="indent">-webkit-order: $val;
+                                        <li class="indent">order: $val;
+                                        <li>}
+                                    </code>
+                                </ul>  
+                            </p> 
+                            
+                                <ul class="none">
+                                    <code> <!---4 will be edited in css--->
+                                        <li>.wrapper {
+                                        <li class="indent">@include flexbox();
+                                        <li>}
+                                    </code>
+                                </ul>  
+                            </p> 
+                            
+                                <ul class="none">
+                                    <code> <!---5 will be edited in css--->
+                                        <li>.item {
+                                        <li class="indent">@include flex(1 200px);
+                                        <li class="indent">@include order(2);
+                                        <li>}
+                                    </code>
+                                </ul>    
+                            </p>
+                        </div>    
+                    </p>
+            </section>   
+     <!--section 5    -->            
+            <section class="main-section" id="Related_Properties">
+                <header >Related Properties</header>
+                    <ul >
+                        <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">A Complete Guide to Grid</a>
+                        </li>
+                        <li>Almanac entries on Grid properties, like <a href="https://css-tricks.com/almanac/properties/g/grid-row-column/">grid-row / grid-column</a></li>
+                    </ul>
+                    
+            </section>
+            <section class="main-section" id="Bugs">
+                <header>Bugs</header>
+                    <p>Flexbox is certainly not without its bugs. The best collection of them I've seen is Philip Walton and Greg Whitworth's Flexbugs. It's an open source place to track all of them, so I think it's best to just link to that.</p>
+            </section>
+            <section class="main-section" id="Reference">
+                <header>Reference</header>
+                    <p>All information present has been derived from 
+                        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>
+                    </p>
+            </section>
+        </main>  
+            <script type="text/jscript" src=""></script>    
+    </body>
+        
+
+</html>

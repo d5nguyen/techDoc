@@ -1,0 +1,53 @@
+@media only screen 
+  and (min-width: 400px) 
+  and (max-width: 700px) { 
+      #navbar {
+          max-width: 150px;
+          height: 100%;
+          font-size: 90%;
+      }
+      #navbar li {
+          padding: 15px 15px 15px 25px;
+          left: -40px;    
+      }
+      h1, section {
+          margin-left: 150px;
+      }  
+
+      div {
+        margin: 5%;
+      }
+      .none {
+          margin: 5px;
+      }
+      .indent {
+          text-indent: 10px;
+}
+}
+
+@media only screen 
+  and (min-width: 100px) 
+  and (max-width: 399px) {
+      #navbar {
+          max-width: 100px;
+          height: 100%;
+          font-size: 80%;
+      }
+      #navbar li {
+          padding: 15px 25px 15px 35px;
+      }
+     
+      h1, section {
+          margin-left: 150px;
+      }  
+      div {
+        margin: 5%;
+      }
+      .none {
+          margin: 5px;
+      }
+      .indent {
+          text-indent: 10px;
+}
+}
+
